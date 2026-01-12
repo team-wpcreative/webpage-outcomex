@@ -90,9 +90,27 @@
             background-color: rgba(0, 163, 224, 0.1); color: #00A3E0;
             font-weight: 700; display: inline-block; margin-bottom: 0.5rem;
         }
+        
+        /* Floating Animation */
+        @keyframes float-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating { animation: float-y 6s ease-in-out infinite; }
+        .floating-delay-1 { animation-delay: 1s; }
+        .floating-delay-2 { animation-delay: 2s; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111827; }
+        ::-webkit-scrollbar-thumb { background: #0055A4; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00A3E0; }
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased bg-white overflow-x-hidden">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 3px; background: #00A3E0; z-index: 9999; width: 0%;"></div>
 
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300">
@@ -107,10 +125,10 @@
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#reality" class="text-gray-600 hover:text-outcomex-light font-medium transition">Market Reality</a>
-                    <a href="#process" class="text-gray-600 hover:text-outcomex-light font-medium transition">How It Works</a>
+                    <a href="#reality" class="text-gray-600 hover:text-outcomex-light font-medium transition">Reality</a>
+                    <a href="#process" class="text-gray-600 hover:text-outcomex-light font-medium transition">Workflow</a>
                     <a href="#integration" class="text-gray-600 hover:text-outcomex-light font-medium transition">Integration</a>
-                    <a href="#packages" class="text-gray-600 hover:text-outcomex-light font-medium transition">Packages</a>
+                    <a href="#packages" class="text-gray-600 hover:text-outcomex-light font-medium transition">Pricing</a>
                     <a href="#contact" class="bg-outcomex-blue text-white px-5 py-2.5 rounded-md font-medium hover:bg-outcomex-light transition shadow-lg hover:-translate-y-0.5 duration-200">
                         Get Assessment
                     </a>
@@ -132,11 +150,10 @@
                 </div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 reveal-on-scroll stagger-1">
                     Unified Defence for a <br>
-                    <span class="text-outcomex-teal">Sovereign Landscape.</span>
+                    <span class="text-outcomex-teal">Modern Threat Landscape.</span>
                 </h1>
                 <p class="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed reveal-on-scroll stagger-2">
-                    Global tools have data residency. We have <strong>operational sovereignty</strong>. 
-                    Outcomex XDR correlates your entire digital ecosystem—Endpoint, Identity, Network—managed 24/7 by NV1-cleared Australian analysts.
+                    Stop reacting to breaches and start anticipating them. <strong>Outcomex XDR</strong> stitches together your entire digital ecosystem for a 360-degree view of threats.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll stagger-3">
                     <a href="#packages" class="bg-outcomex-teal text-white border-2 border-outcomex-teal px-8 py-3.5 rounded-md font-bold text-center hover:bg-transparent hover:text-outcomex-teal transition duration-300">
@@ -148,13 +165,24 @@
                 </div>
                 
                 <div class="mt-12 flex flex-wrap gap-6 text-sm text-gray-400 font-medium reveal-on-scroll stagger-3">
-                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> ISO 27001 Certified SOC</span>
-                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> 100% Australian Staff</span>
-                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> SOCI Act Aligned</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> ISO 27001 Certified</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> 100% Australian SOC</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="w-4 h-4 mr-2 text-outcomex-teal"></i> ACSC Aligned</span>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Trust Strip -->
+    <div class="bg-outcomex-dark border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-6 py-6 text-gray-500 text-sm font-semibold uppercase tracking-wider">
+                <span class="flex items-center"><i data-lucide="shield" class="w-4 h-4 mr-2 text-outcomex-teal"></i> Sovereign Capability</span>
+                <span class="flex items-center"><i data-lucide="lock" class="w-4 h-4 mr-2 text-outcomex-teal"></i> NV1 Cleared Analysts</span>
+                <span class="flex items-center"><i data-lucide="server" class="w-4 h-4 mr-2 text-outcomex-teal"></i> Data Resides in AU</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Market Reality -->
     <section id="reality" class="py-20 bg-outcomex-gray overflow-hidden">
@@ -163,7 +191,7 @@
                 <span class="context-badge">2025 Outlook</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-outcomex-dark mb-4 mt-2">The Reality for Australian Business</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    The adversary has evolved from "Malware" to "Identity". Global reports indicate that <strong>80% of modern breaches</strong> involve compromised credentials, bypassing traditional EDR.
+                    The gap between "Protected" and "Breached" is measured in minutes. Australian organisations are facing unprecedented velocity in identity-based and AI-driven attacks.
                 </p>
             </div>
 
@@ -171,12 +199,12 @@
             <div class="bg-red-50 border-y border-red-100 py-3 mb-12 relative overflow-hidden">
                 <div class="flex items-center absolute left-0 top-0 bottom-0 z-10 bg-red-50 px-4 shadow-md">
                     <span class="text-xs font-bold text-red-600 uppercase tracking-widest flex items-center">
-                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>Critical Alerts
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>Live Intel
                     </span>
                 </div>
                 <div class="whitespace-nowrap animate-scroll-left pl-48 text-sm text-red-800 font-medium flex gap-16">
                     <span><strong>MongoDB (CVE-2025-14847):</strong> Active global exploitation detected.</span>
-                    <span><strong>ACSC Advisory:</strong> Heightened activity from Pro-Russia Hacktivist groups targeting AU Critical Infrastructure.</span>
+                    <span><strong>ACSC Advisory:</strong> Heightened activity from Pro-Russia Hacktivist groups.</span>
                     <span><strong>Fortinet:</strong> SSO Login Authentication Bypass active in wild.</span>
                     <span><strong>WatchGuard:</strong> Critical vulnerability under active attack.</span>
                 </div>
@@ -186,23 +214,23 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
                 <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 reveal-on-scroll hover:shadow-lg transition duration-300">
                     <p class="text-xs font-bold text-gray-400 uppercase mb-2">Avg Breach Cost (AU)</p>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">$4.03M</p>
-                    <p class="text-xs text-gray-500">Source: IBM Cost of Data Breach 2024</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1">$<span class="counter" data-target="4.35">0</span>M</p>
+                    <p class="text-xs text-gray-500">IBM Report 2024-25 (Adjusted)</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-outcomex-teal reveal-on-scroll stagger-1 hover:shadow-lg transition duration-300">
                     <p class="text-xs font-bold text-gray-400 uppercase mb-2">Attack Frequency</p>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">6 Mins</p>
-                    <p class="text-xs text-gray-500">Source: ASD Annual Cyber Threat Report</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1"><span class="counter" data-target="6">0</span> Mins</p>
+                    <p class="text-xs text-gray-500">Source: ASD Cyber Threat Report</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500 reveal-on-scroll stagger-2 hover:shadow-lg transition duration-300">
-                    <p class="text-xs font-bold text-gray-400 uppercase mb-2">Identity Driven</p>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">80%</p>
-                    <p class="text-xs text-gray-500">Attacks involving compromised creds</p>
+                    <p class="text-xs font-bold text-gray-400 uppercase mb-2">Malware-Free Attacks</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1"><span class="counter" data-target="75">0</span>%</p>
+                    <p class="text-xs text-gray-500">CrowdStrike Global Threat Report</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-outcomex-blue reveal-on-scroll stagger-3 hover:shadow-lg transition duration-300">
-                    <p class="text-xs font-bold text-gray-400 uppercase mb-2">Mean Time To Contain</p>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">277 Days</p>
-                    <p class="text-xs text-gray-500">Global Average without AI/XDR</p>
+                    <p class="text-xs font-bold text-gray-400 uppercase mb-2">Time to Contain</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1"><span class="counter" data-target="292">0</span> Days</p>
+                    <p class="text-xs text-gray-500">Avg. without Security AI/Automation</p>
                 </div>
             </div>
             
@@ -219,7 +247,7 @@
                 <span class="context-badge">The Architecture</span>
                 <h2 class="text-3xl font-bold text-gray-900 mt-2">The XDR Engine: Built for Correlation</h2>
                 <p class="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
-                    We don't just collect logs; we connect dots. Our platform normalizes telemetry from your entire stack into a single, cohesive attack narrative, leveraging the <strong>OCSF (Open Cybersecurity Schema Framework)</strong> standard.
+                    We don't just collect logs; we connect dots. Our platform normalizes telemetry from your entire stack into a single, cohesive attack narrative.
                 </p>
             </div>
             
@@ -252,12 +280,9 @@
         </div>
     </section>
 
-    <!-- Operational Workflow (The Intelligence Cycle) -->
+    <!-- Operational Workflow -->
     <section id="process" class="py-24 bg-outcomex-dark text-white relative overflow-hidden">
-        <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/circuit-board.png')]"></div>
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-outcomex-blue to-transparent opacity-30"></div>
-        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-20 reveal-on-scroll">
                 <span class="text-outcomex-teal font-bold tracking-wider uppercase text-sm">Operational Workflow</span>
@@ -268,9 +293,7 @@
             </div>
             
             <div class="relative">
-                <!-- Line -->
                 <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-gray-700 via-outcomex-teal to-gray-700 opacity-30 z-0"></div>
-
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                     <!-- Step 1 -->
                     <div class="group relative reveal-on-scroll stagger-1">
@@ -279,9 +302,7 @@
                             <i data-lucide="download-cloud" class="w-10 h-10 text-gray-400 group-hover:text-outcomex-teal transition-colors"></i>
                         </div>
                         <h3 class="text-xl font-bold text-center mb-3">Unified Ingestion</h3>
-                        <p class="text-sm text-gray-400 text-center leading-relaxed">
-                            Telemetry is continuously aggregated from Endpoints (EDR), Cloud Workloads, Network traffic (NDR), and Identity providers. Data is normalised into <strong>OCSF schema</strong>.
-                        </p>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Telemetry is continuously aggregated from Endpoints (EDR), Cloud Workloads, Network traffic (NDR), and Identity providers.</p>
                     </div>
                     <!-- Step 2 -->
                     <div class="group relative reveal-on-scroll stagger-2">
@@ -290,9 +311,7 @@
                             <i data-lucide="brain-circuit" class="w-10 h-10 text-gray-400 group-hover:text-outcomex-teal transition-colors"></i>
                         </div>
                         <h3 class="text-xl font-bold text-center mb-3">Context & Enrich</h3>
-                        <p class="text-sm text-gray-400 text-center leading-relaxed">
-                            Raw signals are enriched with global threat intelligence (CTIS) and local IOCs sourced from the <strong>ACSC</strong> to validate relevance.
-                        </p>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Raw signals are enriched with global threat intelligence (CTIS) and local IOCs sourced from the <strong>ACSC</strong> to validate relevance.</p>
                     </div>
                     <!-- Step 3 -->
                     <div class="group relative reveal-on-scroll stagger-3">
@@ -301,9 +320,7 @@
                             <i data-lucide="link" class="w-10 h-10 text-gray-400 group-hover:text-outcomex-teal transition-colors"></i>
                         </div>
                         <h3 class="text-xl font-bold text-center mb-3">AI Correlation</h3>
-                        <p class="text-sm text-gray-400 text-center leading-relaxed">
-                            The XDR engine applies <strong>UEBA</strong> to stitch low-fidelity alerts with high-fidelity indicators into a complete attack story, reducing alert volume by 90%.
-                        </p>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">The XDR engine applies <strong>UEBA</strong> to stitch low-fidelity alerts with high-fidelity indicators into a complete attack story.</p>
                     </div>
                     <!-- Step 4 -->
                     <div class="group relative reveal-on-scroll stagger-3">
@@ -312,9 +329,7 @@
                             <i data-lucide="lock" class="w-10 h-10 text-gray-400 group-hover:text-outcomex-teal transition-colors"></i>
                         </div>
                         <h3 class="text-xl font-bold text-center mb-3">Auto Containment</h3>
-                        <p class="text-sm text-gray-400 text-center leading-relaxed">
-                            Upon confirmation, <strong>SOAR playbooks</strong> execute instantly. Host isolation and user suspension are triggered to stop lateral movement.
-                        </p>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Upon confirmation, <strong>SOAR playbooks</strong> execute instantly. Host isolation and user suspension are triggered to stop lateral movement.</p>
                     </div>
                 </div>
             </div>
@@ -327,46 +342,24 @@
             <div class="text-center mb-16 reveal-on-scroll">
                 <span class="context-badge">Universal Compatibility</span>
                 <h2 class="text-3xl font-bold text-outcomex-dark mt-2">Your Stack, Unified. No Rip-and-Replace.</h2>
-                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                    Our programmable ingestion engine normalizes data from <strong>any source</strong>—including custom in-house applications.
-                </p>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Our programmable ingestion engine normalizes data from <strong>any source</strong>—including custom in-house applications.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:border-outcomex-blue transition duration-300 reveal-on-scroll hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue">
-                        <i data-lucide="code" class="w-6 h-6"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue"><i data-lucide="code" class="w-6 h-6"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Parsers & API</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Have a niche industry app? Our local engineering team builds <strong>bespoke API connectors</strong> and log parsers to bring your "blind spot" data into the XDR engine.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Have a niche industry app? Our local engineering team builds <strong>bespoke API connectors</strong> to bring your "blind spot" data into the XDR engine.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:border-outcomex-blue transition duration-300 reveal-on-scroll stagger-1 hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue">
-                        <i data-lucide="server" class="w-6 h-6"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue"><i data-lucide="server" class="w-6 h-6"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Legacy System Support</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Legacy infrastructure is a prime target. We ingest raw telemetry from older mainframes, SCADA systems, or on-premise servers via Syslog/RPC.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Legacy infrastructure is a prime target. We ingest raw telemetry from older mainframes, SCADA systems, or on-premise servers.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:border-outcomex-blue transition duration-300 reveal-on-scroll stagger-2 hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue">
-                        <i data-lucide="webhook" class="w-6 h-6"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-outcomex-blue"><i data-lucide="webhook" class="w-6 h-6"></i></div>
                     <h3 class="text-xl font-bold text-gray-900 mb-3">Third-Party Ecosystem</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Beyond the big vendors, we integrate with <strong>300+ third-party tools</strong> including niche firewalls, VPNs, and physical security systems.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Beyond the big vendors, we integrate with <strong>300+ third-party tools</strong> including niche firewalls, VPNs, and physical security systems.</p>
                 </div>
-            </div>
-            
-            <div class="mt-12 flex flex-wrap justify-center gap-3 opacity-80 reveal-on-scroll">
-                <span class="px-4 py-2 bg-white border border-gray-300 rounded-full text-xs font-bold text-gray-500 uppercase">JSON / XML</span>
-                <span class="px-4 py-2 bg-white border border-gray-300 rounded-full text-xs font-bold text-gray-500 uppercase">Syslog</span>
-                <span class="px-4 py-2 bg-white border border-gray-300 rounded-full text-xs font-bold text-gray-500 uppercase">REST API</span>
-                <span class="px-4 py-2 bg-outcomex-blue text-white border border-outcomex-blue rounded-full text-xs font-bold shadow-md uppercase flex items-center"><i data-lucide="plus" class="w-3 h-3 mr-1"></i> Your Custom App</span>
             </div>
         </div>
     </section>
@@ -374,12 +367,11 @@
     <!-- Market Comparison -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal-on-scroll">
+            <div class="text-center mb-12 reveal-on-scroll">
                 <span class="context-badge">Competitive Analysis</span>
                 <h2 class="text-3xl font-bold text-outcomex-dark mt-2">Why Outcomex Stands Alone</h2>
                 <p class="mt-4 text-lg text-gray-600">Engineering-led security vs. generic alert factories.</p>
             </div>
-
             <div class="overflow-x-auto shadow-xl rounded-lg border border-gray-200 reveal-on-scroll">
                 <table class="w-full text-left border-collapse bg-white">
                     <thead>
@@ -387,103 +379,27 @@
                             <th class="p-5 font-bold text-gray-600 border-b w-1/4">Evaluation Criteria</th>
                             <th class="p-5 font-bold text-gray-600 border-b w-1/4">Global SaaS MDR</th>
                             <th class="p-5 font-bold text-gray-600 border-b w-1/4">Legacy MSSP</th>
-                            <th class="p-5 font-bold text-white bg-outcomex-blue border-b border-outcomex-blue w-1/4 relative">
-                                Outcomex XDR
-                                <div class="absolute top-0 right-0 w-3 h-3 bg-outcomex-teal rounded-full m-2"></div>
-                            </th>
+                            <th class="p-5 font-bold text-white bg-outcomex-blue border-b border-outcomex-blue w-1/4 relative">Outcomex XDR</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <!-- Architecture Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">
-                                <div class="flex items-center">
-                                    <i data-lucide="layers" class="w-4 h-4 text-outcomex-teal mr-2"></i>
-                                    Architecture
-                                </div>
-                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Flexibility of stack</span>
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Sensor Locked</strong>
-                                Requires proprietary agents (EDR/NDR) to function well.
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Log Aggregator</strong>
-                                Basic SIEM collection. Limited API/Cloud depth.
-                            </td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50 relative">
-                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Open XDR (API-First)
-                                <span class="block text-xs font-normal text-gray-600 mt-1">Ingests raw telemetry from ANY source (Microsoft, Cisco, Fortinet, AWS).</span>
-                            </td>
+                            <td class="p-5 font-semibold text-gray-800">Ingestion Architecture</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Sensor Locked</strong><br>Requires proprietary agents.</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Log Aggregator</strong><br>Basic SIEM collection.</td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">Open API / Agnostic</td>
                         </tr>
-                        
-                        <!-- Sovereignty Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">
-                                <div class="flex items-center">
-                                    <i data-lucide="globe" class="w-4 h-4 text-outcomex-teal mr-2"></i>
-                                    Sovereignty
-                                </div>
-                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Data & Staff Location</span>
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Data Residency Only</strong>
-                                Data in AU, but Analysts view from US/EU/India ("Follow the Sun").
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Mixed Delivery</strong>
-                                L1/L2 often offshore. L3 onshore.
-                            </td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
-                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Operational Sovereignty
-                                <span class="block text-xs font-normal text-gray-600 mt-1">100% Australian Staff (NV1), Data, & Infrastructure. SOCI Aligned.</span>
-                            </td>
+                            <td class="p-5 font-semibold text-gray-800">Response Model</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Guided Remediation</strong><br>Manual instructions.</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Ticket Creation</strong><br>No active intervention.</td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">Active SOAR Execution</td>
                         </tr>
-
-                        <!-- Response Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">
-                                <div class="flex items-center">
-                                    <i data-lucide="zap" class="w-4 h-4 text-outcomex-teal mr-2"></i>
-                                    Response
-                                </div>
-                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Action during breach</span>
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Guided Remediation</strong>
-                                Provides a PDF or email on "how to fix it".
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Ticket Creation</strong>
-                                "P1 Incident Raised". No active intervention.
-                            </td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
-                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Active SOAR Execution
-                                <span class="block text-xs font-normal text-gray-600 mt-1">We execute pre-authorized blocks (Firewall/EDR/Identity) instantly.</span>
-                            </td>
-                        </tr>
-
-                        <!-- Commercial Row -->
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">
-                                <div class="flex items-center">
-                                    <i data-lucide="dollar-sign" class="w-4 h-4 text-outcomex-teal mr-2"></i>
-                                    Commercial Model
-                                </div>
-                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Cost predictability</span>
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Expensive Add-ons</strong>
-                                Log retention and extra modules cost significantly more.
-                            </td>
-                            <td class="p-5 text-gray-500 text-sm">
-                                <strong class="block text-gray-700">Volumetric (EPS/GB)</strong>
-                                Penalizes you for logging more data. Unpredictable bills.
-                            </td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
-                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Per Node / Per User
-                                <span class="block text-xs font-normal text-gray-600 mt-1">Fixed monthly cost. Unlimited ingestion & retention options.</span>
-                            </td>
+                            <td class="p-5 font-semibold text-gray-800">Sovereign Status</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Data Residency Only</strong><br>Support "Follows the Sun".</td>
+                            <td class="p-5 text-gray-500 text-sm"><strong>Mixed Delivery</strong><br>L1/L2 offshore.</td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">100% Operational Sovereignty</td>
                         </tr>
                     </tbody>
                 </table>
@@ -502,16 +418,13 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
-                <!-- Tier 1: Essential (Foundation) -->
+                <!-- Tier 1 -->
                 <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm relative reveal-on-scroll">
                     <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-200 text-gray-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">SMB Choice</span>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Essential</h3>
-                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Foundational protection focused on automated defence and compliance. Best for organizations needing robust endpoint security without the operational overhead.
-                    </p>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">Foundational protection focused on automated defence. Ideal for small organizations needing robust endpoint security.</p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 EDR & Email (SEG) Telemetry</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 EDR & Email Telemetry</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Automated Host Isolation (SOAR)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 30-Day Hot Log Retention</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Essential 8 Level 1 Logging</li>
@@ -519,192 +432,65 @@
                     </ul>
                     <a href="#contact" class="block w-full py-3 border border-gray-300 text-gray-700 font-bold rounded-lg text-center hover:bg-gray-50 transition">Contact Us</a>
                 </div>
-
-                <!-- Tier 2: Advantage (The XDR Standard) -->
+                <!-- Tier 2 -->
                 <div class="bg-white p-8 rounded-xl border-2 border-outcomex-blue shadow-xl relative transform scale-105 z-10 reveal-on-scroll stagger-1">
                     <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-outcomex-blue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
                     <h3 class="text-xl font-bold text-outcomex-blue mb-2">Advantage</h3>
-                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Our comprehensive standard for sovereign defence. Combines full-stack correlation with 24/7 human-led threat hunting and rapid containment.
-                    </p>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">Full-spectrum correlation & human-led response. Combines network/cloud data with 24/7 active hunting.</p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
                         <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Essential</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Full Stack (Network, Cloud, Identity)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 AU SOC Analysts</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 15-Minute Critical SLA</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Proactive Threat Hunting</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Custom Detection Engineering</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> UEBA & Root Cause Analysis</li>
                     </ul>
                     <a href="#contact" class="block w-full py-3 bg-outcomex-blue text-white font-bold rounded-lg text-center hover:bg-outcomex-light transition shadow-md">Select Tier</a>
                 </div>
-
-                <!-- Tier 3: Strategic Resilience (Advanced) -->
+                <!-- Tier 3 -->
                 <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm relative reveal-on-scroll stagger-2">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Resilience</h3>
-                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Targeted capabilities for high-risk environments. Extend your coverage with Digital Forensics, proactive Adversary Emulation, and strategic CISO advisory.
-                    </p>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">Targeted capabilities for high-risk environments. Adds Digital Forensics and proactive Adversary Emulation.</p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
                         <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Advantage</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Unlimited DFIR Retainer</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Attack Surface Management (ASM)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Adversary Emulation (Purple Teaming)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Dark Web Brand Intelligence</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Annual Tabletop Exercise (TTX)</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Tabletop Exercises (TTX)</li>
                     </ul>
                     <a href="#contact" class="block w-full py-3 border border-gray-300 text-gray-700 font-bold rounded-lg text-center hover:bg-gray-50 transition">Inquire Now</a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal-on-scroll">
-                <span class="context-badge">Common Questions</span>
-                <h2 class="text-3xl font-bold text-gray-900 mt-2">Frequently Asked Questions</h2>
-                <p class="mt-4 text-gray-500">Everything you need to know about our Sovereign XDR capability.</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- Q1 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>1. What is the difference between XDR, EDR, and SIEM?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Think of <strong>EDR</strong> as a camera in one room (Endoint). <strong>SIEM</strong> is the storage room for all the tapes (Logs). 
-                        <strong>XDR</strong> is the active security guard watching all cameras (Endpoint, Network, Cloud, Identity) simultaneously. Unlike SIEM which just alerts, XDR correlates signals to validate threats and automatically takes action to stop them.
-                    </div>
-                </div>
-                <!-- Q2 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>2. Does Outcomex XDR replace our internal security team?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        No, it acts as a <strong>force multiplier</strong>. We handle the 24/7 monitoring and "noise" (Level 1/2 Triage), filtering out 98% of false positives. This frees your internal team to focus on strategic initiatives, architecture, and insider risk, rather than burning out on alert fatigue at 2 AM.
-                    </div>
-                </div>
-                <!-- Q3 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>3. Is my data processed and stored in Australia?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        <strong>Yes. 100%.</strong> Outcomex is a sovereign Australian provider. Unlike global vendors who may support you from offshore "Follow-the-Sun" centres, our analysts, infrastructure, and data lakes are located strictly within Australian borders. This ensures full alignment with <strong>SOCI Act</strong> requirements and IRAP controls.
-                    </div>
-                </div>
-                <!-- Q4 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>4. Can we keep our existing tools (Microsoft, CrowdStrike, Cisco)?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Absolutely. Our XDR platform is <strong>Open and Vendor-Agnostic</strong>. We ingest data via API from your existing stack—whether it's Microsoft Defender, CrowdStrike Falcon, SentinelOne, or Palo Alto firewalls. You do not need to "rip and replace" your investments to get unified visibility.
-                    </div>
-                </div>
-                <!-- Q5 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>5. How does "Active Response" work? Do you block things automatically?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        We operate on a pre-agreed <strong>Rules of Engagement (RoE)</strong> matrix. For high-fidelity, critical threats (like Ransomware encryption behavior), we are authorized to take immediate automated action (e.g., isolating the host) to prevent spread. For ambiguous or lower-severity events, we triage and escalate to your team for approval. You always retain control.
-                    </div>
-                </div>
-                <!-- Q6 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>6. How long does deployment and onboarding take?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Because our XDR engine relies primarily on API connectors rather than deploying heavy physical appliances, initial visibility can often be achieved in <strong>days, not months</strong>. A typical full onboarding cycle (including baselining and tuning detection rules) takes approximately 4-6 weeks.
-                    </div>
-                </div>
-                <!-- Q7 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>7. Does this service help with Essential 8 and ISO 27001 compliance?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Yes. XDR directly satisfies requirements for <strong>Continuous Monitoring, Incident Response, and Logging</strong>. We provide specific mapping reports that show how our detection logic covers Essential 8 Maturity Level 2/3 controls (e.g., monitoring for MFA bypass or privileged account misuse).
-                    </div>
-                </div>
-                <!-- Q8 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>8. Do you support legacy on-premise infrastructure or OT/SCADA?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Yes. Unlike cloud-only XDR vendors, our heritage as a Systems Integrator means we understand legacy stacks. We can deploy lightweight forwarders to ingest Syslog, RPC, or flat files from mainframes, OT environments, and SCADA networks, correlating them with modern cloud signals.
-                    </div>
-                </div>
-                <!-- Q9 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>9. What happens outside of business hours?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Attackers don't work 9-5, and neither do we. Our <strong>Australian SOC operates 24/7/365</strong>. We do not hand off to an overseas team at 5 PM. If a critical alert fires at 3 AM on a Sunday, a local, NV1-cleared analyst will investigate and respond immediately.
-                    </div>
-                </div>
-                <!-- Q10 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
-                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
-                        <span>10. How is the service priced?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
-                        Our pricing is simple and predictable, typically based on a <strong>Per User</strong> or <strong>Per Node</strong> model. This avoids the "surprise bills" associated with data-volume (EPS/GB) pricing common with legacy SIEMs. You get full XDR capability for a fixed monthly operational cost.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proven Expertise & Partners (RESTORED) -->
-    <section class="py-20 bg-outcomex-gray border-t border-gray-200">
+    <!-- Proven Expertise & Partners -->
+    <section class="py-20 bg-white border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-on-scroll">
                 <span class="context-badge">Proven Expertise</span>
                 <h2 class="text-3xl font-bold text-gray-900 mt-2">Certifications & Strategic Partners</h2>
                 <p class="mt-4 text-gray-500">Recognized excellence by global standards and leading technology vendors.</p>
             </div>
-
-            <!-- Certifications Grid -->
+            
+            <!-- Certs Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 reveal-on-scroll">
-                <!-- ISO -->
-                <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:border-outcomex-teal hover:shadow-md transition duration-300 group">
+                <div class="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-outcomex-teal hover:shadow-md transition duration-300 group">
                     <span class="text-2xl font-black text-gray-800 mb-1 group-hover:text-outcomex-blue transition-colors">ISO</span>
                     <span class="text-sm font-bold text-outcomex-blue">ISO 27001</span>
                     <span class="text-[10px] text-gray-400 uppercase tracking-widest mt-1 border-t border-gray-100 pt-1 w-full text-center">Certified</span>
                 </div>
-                <!-- DISP -->
                 <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:border-outcomex-teal hover:shadow-md transition duration-300 stagger-1 group">
                     <span class="text-2xl font-black text-gray-800 mb-1 group-hover:text-outcomex-blue transition-colors">DISP</span>
                     <span class="text-sm font-bold text-outcomex-blue">Defence Industry</span>
                     <span class="text-[10px] text-gray-400 uppercase tracking-widest mt-1 border-t border-gray-100 pt-1 w-full text-center">Member</span>
                 </div>
-                 <!-- CREST -->
                  <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:border-outcomex-teal hover:shadow-md transition duration-300 stagger-2 group">
                     <span class="text-2xl font-black text-gray-800 mb-1 group-hover:text-outcomex-blue transition-colors">CREST</span>
                     <span class="text-sm font-bold text-outcomex-blue">Penetration Testing</span>
                     <span class="text-[10px] text-gray-400 uppercase tracking-widest mt-1 border-t border-gray-100 pt-1 w-full text-center">Accredited</span>
                 </div>
-                <!-- GOV -->
                 <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl border border-gray-200 hover:border-outcomex-teal hover:shadow-md transition duration-300 stagger-3 group">
                     <i data-lucide="building-2" class="w-8 h-8 text-gray-800 mb-2 group-hover:text-outcomex-blue transition-colors"></i>
                     <span class="text-sm font-bold text-outcomex-blue">NSW Govt</span>
@@ -712,12 +498,7 @@
                 </div>
             </div>
 
-            <!-- Partners -->
-            <div class="text-center mb-12 reveal-on-scroll">
-                <h3 class="text-2xl font-bold text-gray-900">Strategic Technology Partners</h3>
-                <p class="text-gray-500 mt-2">Integrated with the world's leading XDR & Security platforms.</p>
-            </div>
-            
+            <!-- Strategic Partners -->
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-80 reveal-on-scroll">
                  <div class="text-center group cursor-default">
                     <div class="text-2xl font-extrabold text-gray-800 group-hover:text-outcomex-blue transition duration-300">Cisco</div>
@@ -743,86 +524,189 @@
         </div>
     </section>
 
-    <!-- NEW: TESTIMONIALS -->
-    <section class="py-20 bg-white border-t border-gray-200">
+    <!-- Testimonials -->
+    <section class="py-20 bg-outcomex-gray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal-on-scroll">
                 <span class="context-badge">Proven Impact</span>
                 <h2 class="text-3xl font-bold text-gray-900 mt-2">Trusted by Australian Industry</h2>
                 <p class="mt-4 text-gray-500">Real-world results from organizations we protect.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll">
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll">
                     <i data-lucide="quote" class="w-10 h-10 text-outcomex-teal opacity-20 absolute top-6 left-6"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 pt-4">
-                        "The difference with Outcomex is the local context. When a critical vulnerability hit the news on a Friday night, their Sydney team had already patched our perimeter before we woke up. True sovereign capability."
-                    </p>
+                    <p class="text-gray-600 mb-6 relative z-10 pt-4">"The difference with Outcomex is the local context. When a critical vulnerability hit, their Sydney team had already patched our perimeter before we woke up. True sovereign capability."</p>
                     <div class="flex items-center">
                         <div class="w-10 h-10 bg-outcomex-blue rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">SJ</div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">Sarah Jenkins</h4>
-                            <p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">CISO, Logistics Provider</p>
-                        </div>
+                        <div><h4 class="font-bold text-gray-900 text-sm">Sarah Jenkins</h4><p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">CISO, Logistics</p></div>
                     </div>
                 </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll stagger-1">
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll stagger-1">
                     <i data-lucide="quote" class="w-10 h-10 text-outcomex-teal opacity-20 absolute top-6 left-6"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 pt-4">
-                        "We moved from a global US vendor to Outcomex XDR. The noise reduction was immediate. We went from 500+ alerts a week to maybe 3 actionable incidents that actually mattered. My team finally has their weekends back."
-                    </p>
+                    <p class="text-gray-600 mb-6 relative z-10 pt-4">"The noise reduction was immediate. We went from 500+ alerts a week to maybe 3 actionable incidents that actually mattered. My team finally has their weekends back."</p>
                     <div class="flex items-center">
                         <div class="w-10 h-10 bg-outcomex-blue rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">DC</div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">David Chen</h4>
-                            <p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">Head of IT, Financial Services</p>
-                        </div>
+                        <div><h4 class="font-bold text-gray-900 text-sm">David Chen</h4><p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">Head of IT, Finance</p></div>
                     </div>
                 </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll stagger-2">
+                <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm relative hover:shadow-md transition duration-300 reveal-on-scroll stagger-2">
                     <i data-lucide="quote" class="w-10 h-10 text-outcomex-teal opacity-20 absolute top-6 left-6"></i>
-                    <p class="text-gray-600 mb-6 relative z-10 pt-4">
-                        "Meeting our DISP requirements was a massive headache until we engaged Outcomex. Their reporting isn't just technical; it maps directly to the governance standards our board requires."
-                    </p>
+                    <p class="text-gray-600 mb-6 relative z-10 pt-4">"Meeting our DISP requirements was a massive headache until we engaged Outcomex. Their reporting maps directly to the governance standards our board requires."</p>
                     <div class="flex items-center">
                         <div class="w-10 h-10 bg-outcomex-blue rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">MT</div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">Marcus Thorne</h4>
-                            <p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">Ops Director, Defence Contractor</p>
-                        </div>
+                        <div><h4 class="font-bold text-gray-900 text-sm">Marcus Thorne</h4><p class="text-xs text-outcomex-teal uppercase tracking-wide font-semibold">Ops Director, Defence</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: CTA SECTION -->
-    <section id="contact" class="py-24 bg-outcomex-blue text-white relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-outcomex-teal rounded-full blur-3xl opacity-20"></div>
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="context-badge">Common Questions</span>
+                <h2 class="text-3xl font-bold text-gray-900 mt-2">Frequently Asked Questions</h2>
+                <p class="mt-4 text-gray-500">Everything you need to know about our Sovereign XDR capability.</p>
+            </div>
 
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>1. What is the difference between XDR, EDR, and SIEM?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Think of <strong>EDR</strong> as a camera in one room (Endpoint). <strong>SIEM</strong> is the storage room for all the tapes (Logs). 
+                        <strong>XDR</strong> is the active security guard watching all cameras (Endpoint, Network, Cloud, Identity) simultaneously. Unlike SIEM which just alerts, XDR correlates signals to validate threats and automatically takes action to stop them.
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>2. Does Outcomex XDR replace our internal security team?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        No, it acts as a <strong>force multiplier</strong>. We handle the 24/7 monitoring and "noise" (Level 1/2 Triage), filtering out 98% of false positives. This frees your internal team to focus on strategic initiatives, architecture, and insider risk, rather than burning out on alert fatigue at 2 AM.
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>3. Is my data processed and stored in Australia?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        <strong>Yes. 100%.</strong> Outcomex is a sovereign Australian provider. Unlike global vendors who may support you from offshore "Follow-the-Sun" centres, our analysts, infrastructure, and data lakes are located strictly within Australian borders. This ensures full alignment with <strong>SOCI Act</strong> requirements and IRAP controls.
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>4. Can we keep our existing tools (Microsoft, CrowdStrike, Cisco)?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Absolutely. Our XDR platform is <strong>Open and Vendor-Agnostic</strong>. We ingest data via API from your existing stack—whether it's Microsoft Defender, CrowdStrike Falcon, SentinelOne, or Palo Alto firewalls. You do not need to "rip and replace" your investments to get unified visibility.
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>5. How does "Active Response" work? Do you block things automatically?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        We operate on a pre-agreed <strong>Rules of Engagement (RoE)</strong> matrix. For high-fidelity, critical threats (like Ransomware encryption behavior), we are authorized to take immediate automated action (e.g., isolating the host) to prevent spread. For ambiguous or lower-severity events, we triage and escalate to your team for approval. You always retain control.
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>6. How long does deployment and onboarding take?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Because our XDR engine relies primarily on API connectors rather than deploying heavy physical appliances, initial visibility can often be achieved in <strong>days, not months</strong>. A typical full onboarding cycle (including baselining and tuning detection rules) takes approximately 4-6 weeks.
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>7. Does this service help with Essential 8 and ISO 27001 compliance?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Yes. XDR directly satisfies requirements for <strong>Continuous Monitoring, Incident Response, and Logging</strong>. We provide specific mapping reports that show how our detection logic covers Essential 8 Maturity Level 2/3 controls (e.g., monitoring for MFA bypass or privileged account misuse).
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-1">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>8. Do you support legacy on-premise infrastructure or OT/SCADA?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Yes. Unlike cloud-only XDR vendors, our heritage as a Systems Integrator means we understand legacy stacks. We can deploy lightweight forwarders to ingest Syslog, RPC, or flat files from mainframes, OT environments, and SCADA networks, correlating them with modern cloud signals.
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll stagger-2">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>9. What happens outside of business hours?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Attackers don't work 9-5, and neither do we. Our <strong>Australian SOC operates 24/7/365</strong>. We do not hand off to an overseas team at 5 PM. If a critical alert fires at 3 AM on a Sunday, a local, NV1-cleared analyst will investigate and respond immediately.
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden reveal-on-scroll">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-semibold text-gray-900 focus:outline-none">
+                        <span>10. How is the service priced?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white text-gray-600 border-t border-gray-100">
+                        Our pricing is simple and predictable, typically based on a <strong>Per User</strong> or <strong>Per Node</strong> model. This avoids the "surprise bills" associated with data-volume (EPS/GB) pricing common with legacy SIEMs. You get full XDR capability for a fixed monthly operational cost.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-24 bg-outcomex-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal-on-scroll">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Secure Your Future?</h2>
-            <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                Don't wait for a breach to reveal your blind spots. Book a consultative assessment with our Australian security team today.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="bg-outcomex-teal text-white border-2 border-outcomex-teal px-8 py-4 rounded-md font-bold text-lg hover:bg-white hover:text-outcomex-blue hover:border-white transition shadow-lg">
-                    Book Readiness Review
-                </a>
-                <a href="#" class="px-8 py-4 rounded-md font-bold text-lg border-2 border-white/30 text-white hover:bg-white/10 transition">
-                    Contact Sales
-                </a>
-            </div>
-            <p class="mt-6 text-sm text-blue-200">
-                <i data-lucide="lock" class="w-4 h-4 inline mr-1"></i> No obligation. 100% Confidential.
-            </p>
+            <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">Book a consultative assessment with our Australian security team today.</p>
+            
+            <form class="bg-white rounded-lg p-8 text-gray-800 max-w-lg mx-auto shadow-2xl">
+                <div class="mb-4">
+                    <label class="block text-left text-sm font-bold mb-2">Work Email</label>
+                    <input type="email" placeholder="name@company.com.au" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-outcomex-teal">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-left text-sm font-bold mb-2">Interest</label>
+                    <select class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-outcomex-teal">
+                        <option>XDR Readiness Review</option>
+                        <option>Pricing Quote</option>
+                        <option>Technical Demo</option>
+                    </select>
+                </div>
+                <button type="button" class="w-full bg-outcomex-teal text-white font-bold py-3 rounded-md hover:bg-outcomex-light transition duration-300">Request Call Back</button>
+            </form>
         </div>
     </section>
 
@@ -831,95 +715,54 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-2xl font-bold mb-4">Proactive Defense: No Longer Optional.</h3>
             <p class="text-gray-400 mb-8">Partner with Outcomex for world-class Threat Intelligence and Hunting.</p>
-            <div class="flex justify-center space-x-6 mb-8 text-sm text-gray-400">
-                <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition">Terms of Service</a>
-                <a href="#" class="hover:text-white transition">Contact Us</a>
-            </div>
             <p class="text-sm text-gray-500">&copy; 2025 Outcomex. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Initialize Lucide Icons & Scripts -->
+    <!-- Scripts -->
     <script>
-        // Use a self-executing function to avoid global scope pollution
         (function() {
-            // Check if lucide is available before using it
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            } else {
-                console.warn("Lucide icons library not loaded.");
-            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
 
-            // Function to add the visible class
             const revealOnScroll = () => {
                 const elements = document.querySelectorAll('.reveal-on-scroll');
                 elements.forEach((element) => {
                     const windowHeight = window.innerHeight;
                     const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-
-                    if (elementTop < windowHeight - elementVisible) {
+                    if (elementTop < windowHeight - 100) {
                         element.classList.add('is-visible');
                         
-                        // Check if we have counters in this section to animate
                         const counters = element.querySelectorAll('.counter');
                         if (counters.length > 0 && !element.classList.contains('counted')) {
                             element.classList.add('counted');
                             counters.forEach(counter => {
                                 const target = parseFloat(counter.getAttribute('data-target'));
-                                const duration = 2000;
-                                const start = performance.now();
-                                
-                                const animate = (currentTime) => {
-                                    const elapsed = currentTime - start;
-                                    const progress = Math.min(elapsed / duration, 1);
-                                    const ease = 1 - Math.pow(1 - progress, 3); // Cubic ease out
-                                    
-                                    const current = target * ease;
-                                    // Handle formatting
-                                    if (target % 1 === 0) {
-                                        counter.innerText = Math.round(current);
+                                let current = 0;
+                                const increment = target / 40;
+                                const timer = setInterval(() => {
+                                    current += increment;
+                                    if (current >= target) {
+                                        counter.innerText = target;
+                                        clearInterval(timer);
                                     } else {
-                                        counter.innerText = current.toFixed(1);
+                                        counter.innerText = target % 1 === 0 ? Math.ceil(current) : current.toFixed(2);
                                     }
-                                    
-                                    if (progress < 1) requestAnimationFrame(animate);
-                                    else counter.innerText = target; // Ensure exact final value
-                                };
-                                requestAnimationFrame(animate);
+                                }, 30);
                             });
                         }
                     }
                 });
             };
 
-            // Run on scroll
             window.addEventListener('scroll', revealOnScroll);
-            
-            // Run once on load to reveal above-the-fold elements
-            // We use a small timeout to ensure the DOM is fully painted first
-            setTimeout(() => {
-                // Add a class to body to indicate JS is active, triggering the CSS transition logic
-                document.body.classList.add('js-loaded');
-                revealOnScroll();
-            }, 100);
+            setTimeout(() => { document.body.classList.add('js-enabled'); revealOnScroll(); }, 100);
 
-            // FAQ Accordion
-            const faqButtons = document.querySelectorAll('.faq-btn');
-            faqButtons.forEach(button => {
+            document.querySelectorAll('.faq-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     const content = button.nextElementSibling;
-                    const icon = button.querySelector('i');
-                    
-                    // Simple toggle logic
-                    if (content.classList.contains('hidden')) {
-                        content.classList.remove('hidden');
-                        if (icon) icon.style.transform = 'rotate(180deg)';
-                    } else {
-                        content.classList.add('hidden');
-                        if (icon) icon.style.transform = 'rotate(0deg)';
-                    }
+                    const icon = button.querySelector('svg') || button.querySelector('i');
+                    content.classList.toggle('hidden');
+                    if (icon) icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
                 });
             });
         })();
