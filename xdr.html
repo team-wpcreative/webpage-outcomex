@@ -374,8 +374,9 @@
     <!-- Market Comparison -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal-on-scroll">
-                <h2 class="text-3xl font-bold text-outcomex-dark">Why Outcomex Stands Alone</h2>
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="context-badge">Competitive Analysis</span>
+                <h2 class="text-3xl font-bold text-outcomex-dark mt-2">Why Outcomex Stands Alone</h2>
                 <p class="mt-4 text-lg text-gray-600">Engineering-led security vs. generic alert factories.</p>
             </div>
 
@@ -393,23 +394,96 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
+                        <!-- Architecture Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">Ingestion Architecture</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Sensor Locked</strong><br>Requires proprietary agents.</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Log Aggregator</strong><br>Basic SIEM collection.</td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">Open API / Agnostic</td>
+                            <td class="p-5 font-semibold text-gray-800">
+                                <div class="flex items-center">
+                                    <i data-lucide="layers" class="w-4 h-4 text-outcomex-teal mr-2"></i>
+                                    Architecture
+                                </div>
+                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Flexibility of stack</span>
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Sensor Locked</strong>
+                                Requires proprietary agents (EDR/NDR) to function well.
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Log Aggregator</strong>
+                                Basic SIEM collection. Limited API/Cloud depth.
+                            </td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50 relative">
+                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Open XDR (API-First)
+                                <span class="block text-xs font-normal text-gray-600 mt-1">Ingests raw telemetry from ANY source (Microsoft, Cisco, Fortinet, AWS).</span>
+                            </td>
                         </tr>
+                        
+                        <!-- Sovereignty Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">Response Model</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Guided Remediation</strong><br>Manual instructions.</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Ticket Creation</strong><br>No active intervention.</td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">Active SOAR Execution</td>
+                            <td class="p-5 font-semibold text-gray-800">
+                                <div class="flex items-center">
+                                    <i data-lucide="globe" class="w-4 h-4 text-outcomex-teal mr-2"></i>
+                                    Sovereignty
+                                </div>
+                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Data & Staff Location</span>
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Data Residency Only</strong>
+                                Data in AU, but Analysts view from US/EU/India ("Follow the Sun").
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Mixed Delivery</strong>
+                                L1/L2 often offshore. L3 onshore.
+                            </td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
+                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Operational Sovereignty
+                                <span class="block text-xs font-normal text-gray-600 mt-1">100% Australian Staff (NV1), Data, & Infrastructure. SOCI Aligned.</span>
+                            </td>
                         </tr>
+
+                        <!-- Response Row -->
                         <tr class="hover:bg-gray-50">
-                            <td class="p-5 font-semibold text-gray-800">Sovereign Status</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Data Residency Only</strong><br>Support "Follows the Sun".</td>
-                            <td class="p-5 text-gray-500 text-sm"><strong>Mixed Delivery</strong><br>L1/L2 offshore.</td>
-                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">100% Operational Sovereignty</td>
+                            <td class="p-5 font-semibold text-gray-800">
+                                <div class="flex items-center">
+                                    <i data-lucide="zap" class="w-4 h-4 text-outcomex-teal mr-2"></i>
+                                    Response
+                                </div>
+                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Action during breach</span>
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Guided Remediation</strong>
+                                Provides a PDF or email on "how to fix it".
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Ticket Creation</strong>
+                                "P1 Incident Raised". No active intervention.
+                            </td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
+                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Active SOAR Execution
+                                <span class="block text-xs font-normal text-gray-600 mt-1">We execute pre-authorized blocks (Firewall/EDR/Identity) instantly.</span>
+                            </td>
+                        </tr>
+
+                        <!-- Commercial Row -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-5 font-semibold text-gray-800">
+                                <div class="flex items-center">
+                                    <i data-lucide="dollar-sign" class="w-4 h-4 text-outcomex-teal mr-2"></i>
+                                    Commercial Model
+                                </div>
+                                <span class="block text-xs font-normal text-gray-500 mt-1 pl-6">Cost predictability</span>
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Expensive Add-ons</strong>
+                                Log retention and extra modules cost significantly more.
+                            </td>
+                            <td class="p-5 text-gray-500 text-sm">
+                                <strong class="block text-gray-700">Volumetric (EPS/GB)</strong>
+                                Penalizes you for logging more data. Unpredictable bills.
+                            </td>
+                            <td class="p-5 text-outcomex-blue font-bold bg-blue-50/50">
+                                <i data-lucide="check" class="w-4 h-4 inline mr-1"></i> Per Node / Per User
+                                <span class="block text-xs font-normal text-gray-600 mt-1">Fixed monthly cost. Unlimited ingestion & retention options.</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -429,53 +503,55 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                 
-                <!-- Tier 1 -->
+                <!-- Tier 1: Essential (Foundation) -->
                 <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm relative reveal-on-scroll">
                     <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-200 text-gray-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">SMB Choice</span>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Essential</h3>
                     <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Foundational protection focused on automated defence and compliance. Ideal for smaller organizations needing robust EDR and email security without the complexity.
+                        Foundational protection focused on automated defence and compliance. Best for organizations needing robust endpoint security without the operational overhead.
                     </p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 EDR & Email (SEG) Telemetry</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Automated L1 Response (SOAR)</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Global Threat Feeds (STIX/TAXII)</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Automated Host Isolation (SOAR)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 30-Day Hot Log Retention</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Essential 8 Level 1 Logging</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Monthly Executive Reporting</li>
                     </ul>
                     <a href="#contact" class="block w-full py-3 border border-gray-300 text-gray-700 font-bold rounded-lg text-center hover:bg-gray-50 transition">Contact Us</a>
                 </div>
 
-                <!-- Tier 2 (Popular) -->
+                <!-- Tier 2: Advantage (The XDR Standard) -->
                 <div class="bg-white p-8 rounded-xl border-2 border-outcomex-blue shadow-xl relative transform scale-105 z-10 reveal-on-scroll stagger-1">
                     <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-outcomex-blue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Popular</span>
-                    <h3 class="text-xl font-bold text-outcomex-blue mb-2">Sovereign Defence</h3>
+                    <h3 class="text-xl font-bold text-outcomex-blue mb-2">Advantage</h3>
                     <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Our comprehensive standard for sovereign defence. Combines full-stack correlation (Network, Cloud, Identity) with 24/7 human-led threat hunting and rapid containment.
+                        Our comprehensive standard for sovereign defence. Combines full-stack correlation with 24/7 human-led threat hunting and rapid containment.
                     </p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
-                        <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Core +</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Full Stack (NDR, CWPP, ITDR)</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 NV1-Cleared AU Analysts</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> UEBA & MITRE ATT&CK Mapping</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Weekly Hypothesis Threat Hunting</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> SOCI & DISP Compliance Reporting</li>
+                        <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Essential</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Full Stack (Network, Cloud, Identity)</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 24/7 AU SOC Analysts</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> 15-Minute Critical SLA</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Proactive Threat Hunting</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Custom Detection Engineering</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> UEBA & Root Cause Analysis</li>
                     </ul>
                     <a href="#contact" class="block w-full py-3 bg-outcomex-blue text-white font-bold rounded-lg text-center hover:bg-outcomex-light transition shadow-md">Select Tier</a>
                 </div>
 
-                <!-- Tier 3 -->
+                <!-- Tier 3: Strategic Resilience (Advanced) -->
                 <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm relative reveal-on-scroll stagger-2">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Resilience</h3>
                     <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        Targeted capabilities for high-risk environments. Extend your coverage with Digital Forensics, proactive Adversary Emulation, and strategic CISO advisory services.
+                        Targeted capabilities for high-risk environments. Extend your coverage with Digital Forensics, proactive Adversary Emulation, and strategic CISO advisory.
                     </p>
                     <ul class="space-y-3 mb-8 text-sm text-gray-600">
-                        <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Defence +</li>
+                        <li class="flex items-start font-bold text-outcomex-teal"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5"></i> Everything in Advantage</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Unlimited DFIR Retainer</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Attack Surface Management (ASM)</li>
                         <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Adversary Emulation (Purple Teaming)</li>
-                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Strategic vCISO & Board Advisory</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Dark Web Brand Intelligence</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2 mt-0.5"></i> Annual Tabletop Exercise (TTX)</li>
                     </ul>
                     <a href="#contact" class="block w-full py-3 border border-gray-300 text-gray-700 font-bold rounded-lg text-center hover:bg-gray-50 transition">Inquire Now</a>
                 </div>
