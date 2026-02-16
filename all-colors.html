@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OutcomeX Color Palette | Design System</title>
+    <meta name="description" content="OutcomeX color palette and design system reference" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                dark: "#050507",
+                gray: "#13151A",
+                border: "#2A2E37",
+                cyan: "#00F0FF",
+                teal: "#00D1C6",
+                red: "#FF2E2E",
+                purple: "#BD00FF",
+                green: "#00FF9D",
+                orange: "#FF8A00",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              heading: ["Outfit", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    
+    <style>
+      .color-swatch {
+        transition: transform 0.2s ease;
+      }
+      .color-swatch:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-gray-300 antialiased">
+    <!-- Header -->
+    <header class="bg-gray-900 border-b border-gray-800 py-6 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-3xl font-bold text-white">OutcomeX <span class="text-cyan-400">Color Palette</span></h1>
+        <p class="text-gray-500 mt-1">Design system reference for all OutcomeX properties</p>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 space-y-16">
+      
+      <!-- CYAN -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-cyan-400"></span>
+          Cyan
+        </h2>
+        
+        <!-- Backgrounds -->
+        <div class="mb-8">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Backgrounds</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="color-swatch bg-cyan-50 p-4 rounded-lg text-black text-center text-sm">cyan-50</div>
+            <div class="color-swatch bg-cyan-100 p-4 rounded-lg text-black text-center text-sm">cyan-100</div>
+            <div class="color-swatch bg-cyan-200 p-4 rounded-lg text-black text-center text-sm">cyan-200</div>
+            <div class="color-swatch bg-cyan-300 p-4 rounded-lg text-black text-center text-sm">cyan-300</div>
+            <div class="color-swatch bg-cyan-400 p-4 rounded-lg text-black text-center text-sm">cyan-400</div>
+            <div class="color-swatch bg-cyan-500 p-4 rounded-lg text-white text-center text-sm">cyan-500</div>
+            <div class="color-swatch bg-cyan-600 p-4 rounded-lg text-white text-center text-sm">cyan-600</div>
+            <div class="color-swatch bg-cyan-700 p-4 rounded-lg text-white text-center text-sm">cyan-700</div>
+            <div class="color-swatch bg-cyan-800 p-4 rounded-lg text-white text-center text-sm">cyan-800</div>
+            <div class="color-swatch bg-cyan-900 p-4 rounded-lg text-white text-center text-sm">cyan-900</div>
+            <div class="color-swatch bg-cyan-950 p-4 rounded-lg text-white text-center text-sm">cyan-950</div>
+          </div>
+        </div>
+        
+        <!-- Text Colors -->
+        <div class="mb-8">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Text Colors</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-50 text-center text-sm">text-cyan-50</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-100 text-center text-sm">text-cyan-100</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-200 text-center text-sm">text-cyan-200</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-300 text-center text-sm">text-cyan-300</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-400 text-center text-sm font-bold">text-cyan-400</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-500 text-center text-sm">text-cyan-500</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-600 text-center text-sm">text-cyan-600</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-700 text-center text-sm">text-cyan-700</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-800 text-center text-sm">text-cyan-800</div>
+            <div class="p-4 rounded-lg bg-gray-900 text-cyan-900 text-center text-sm">text-cyan-900</div>
+          </div>
+        </div>
+        
+        <!-- Borders -->
+        <div class="mb-8">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Borders</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-50 text-cyan-50 text-center text-sm">cyan-50</div>
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-100 text-cyan-100 text-center text-sm">cyan-100</div>
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-200 text-cyan-200 text-center text-sm">cyan-200</div>
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-300 text-cyan-300 text-center text-sm">cyan-300</div>
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-400 text-cyan-400 text-center text-sm font-bold">cyan-400</div>
+            <div class="p-4 rounded-lg bg-gray-900 border border-cyan-500 text-cyan-500 text-center text-sm">cyan-500</div>
+          </div>
+        </div>
+        
+        <!-- With Opacity -->
+        <div class="mb-8">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity (cyan/x)</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+            <div class="color-swatch bg-cyan-500/10 p-4 rounded-lg text-cyan-400 text-center text-sm">/10</div>
+            <div class="color-swatch bg-cyan-500/20 p-4 rounded-lg text-cyan-400 text-center text-sm">/20</div>
+            <div class="color-swatch bg-cyan-500/30 p-4 rounded-lg text-cyan-400 text-center text-sm">/30</div>
+            <div class="color-swatch bg-cyan-500/40 p-4 rounded-lg text-cyan-400 text-center text-sm">/40</div>
+            <div class="color-swatch bg-cyan-500/50 p-4 rounded-lg text-cyan-400 text-center text-sm">/50</div>
+            <div class="color-swatch bg-cyan-500/60 p-4 rounded-lg text-cyan-400 text-center text-sm">/60</div>
+            <div class="color-swatch bg-cyan-500/80 p-4 rounded-lg text-cyan-400 text-center text-sm">/80</div>
+            <div class="color-swatch bg-cyan-500 p-4 rounded-lg text-black text-center text-sm">full</div>
+          </div>
+        </div>
+        
+        <!-- Gradients -->
+        <div class="mb-8">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Gradients</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="h-20 rounded-lg bg-gradient-to-r from-cyan-400 to-cyan-600"></div>
+            <div class="h-20 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+            <div class="h-20 rounded-lg bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500"></div>
+            <div class="h-20 rounded-lg bg-gradient-to-t from-cyan-900 to-cyan-400"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PURPLE -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-purple-500"></span>
+          Purple
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-purple-50 p-4 rounded-lg text-black text-center text-sm">purple-50</div>
+          <div class="color-swatch bg-purple-100 p-4 rounded-lg text-black text-center text-sm">purple-100</div>
+          <div class="color-swatch bg-purple-200 p-4 rounded-lg text-black text-center text-sm">purple-200</div>
+          <div class="color-swatch bg-purple-300 p-4 rounded-lg text-black text-center text-sm">purple-300</div>
+          <div class="color-swatch bg-purple-400 p-4 rounded-lg text-black text-center text-sm">purple-400</div>
+          <div class="color-swatch bg-purple-500 p-4 rounded-lg text-white text-center text-sm">purple-500</div>
+          <div class="color-swatch bg-purple-600 p-4 rounded-lg text-white text-center text-sm">purple-600</div>
+          <div class="color-swatch bg-purple-700 p-4 rounded-lg text-white text-center text-sm">purple-700</div>
+          <div class="color-swatch bg-purple-800 p-4 rounded-lg text-white text-center text-sm">purple-800</div>
+          <div class="color-swatch bg-purple-900 p-4 rounded-lg text-white text-center text-sm">purple-900</div>
+          <div class="color-swatch bg-purple-950 p-4 rounded-lg text-white text-center text-sm">purple-950</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+          <div class="color-swatch bg-purple-500/10 p-4 rounded-lg text-purple-400 text-center text-sm">/10</div>
+          <div class="color-swatch bg-purple-500/20 p-4 rounded-lg text-purple-400 text-center text-sm">/20</div>
+          <div class="color-swatch bg-purple-500/30 p-4 rounded-lg text-purple-400 text-center text-sm">/30</div>
+          <div class="color-swatch bg-purple-500/40 p-4 rounded-lg text-purple-400 text-center text-sm">/40</div>
+          <div class="color-swatch bg-purple-500/50 p-4 rounded-lg text-purple-400 text-center text-sm">/50</div>
+          <div class="color-swatch bg-purple-500/80 p-4 rounded-lg text-purple-400 text-center text-sm">/80</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Gradients</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="h-20 rounded-lg bg-gradient-to-r from-cyan-400 to-purple-500"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-orange-500"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-t from-purple-900 to-purple-400"></div>
+        </div>
+      </section>
+
+      <!-- RED -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-red-500"></span>
+          Red
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-red-50 p-4 rounded-lg text-black text-center text-sm">red-50</div>
+          <div class="color-swatch bg-red-100 p-4 rounded-lg text-black text-center text-sm">red-100</div>
+          <div class="color-swatch bg-red-200 p-4 rounded-lg text-black text-center text-sm">red-200</div>
+          <div class="color-swatch bg-red-300 p-4 rounded-lg text-black text-center text-sm">red-300</div>
+          <div class="color-swatch bg-red-400 p-4 rounded-lg text-black text-center text-sm">red-400</div>
+          <div class="color-swatch bg-red-500 p-4 rounded-lg text-white text-center text-sm">red-500</div>
+          <div class="color-swatch bg-red-600 p-4 rounded-lg text-white text-center text-sm">red-600</div>
+          <div class="color-swatch bg-red-700 p-4 rounded-lg text-white text-center text-sm">red-700</div>
+          <div class="color-swatch bg-red-800 p-4 rounded-lg text-white text-center text-sm">red-800</div>
+          <div class="color-swatch bg-red-900 p-4 rounded-lg text-white text-center text-sm">red-900</div>
+          <div class="color-swatch bg-red-950 p-4 rounded-lg text-white text-center text-sm">red-950</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+          <div class="color-swatch bg-red-500/10 p-4 rounded-lg text-red-400 text-center text-sm">/10</div>
+          <div class="color-swatch bg-red-500/20 p-4 rounded-lg text-red-400 text-center text-sm">/20</div>
+          <div class="color-swatch bg-red-500/30 p-4 rounded-lg text-red-400 text-center text-sm">/30</div>
+          <div class="color-swatch bg-red-500/40 p-4 rounded-lg text-red-400 text-center text-sm">/40</div>
+          <div class="color-swatch bg-red-500/50 p-4 rounded-lg text-red-400 text-center text-sm">/50</div>
+          <div class="color-swatch bg-red-500/80 p-4 rounded-lg text-red-400 text-center text-sm">/80</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Gradients</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="h-20 rounded-lg bg-gradient-to-r from-red-400 to-red-600"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-orange-500"></div>
+          <div class="h-20 rounded-lg bg-gradient-to-t from-red-900 to-red-500"></div>
+        </div>
+      </section>
+
+      <!-- GRAY -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-gray-500"></span>
+          Gray
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-gray-50 p-4 rounded-lg text-black text-center text-sm">gray-50</div>
+          <div class="color-swatch bg-gray-100 p-4 rounded-lg text-black text-center text-sm">gray-100</div>
+          <div class="color-swatch bg-gray-200 p-4 rounded-lg text-black text-center text-sm">gray-200</div>
+          <div class="color-swatch bg-gray-300 p-4 rounded-lg text-black text-center text-sm">gray-300</div>
+          <div class="color-swatch bg-gray-400 p-4 rounded-lg text-black text-center text-sm">gray-400</div>
+          <div class="color-swatch bg-gray-500 p-4 rounded-lg text-white text-center text-sm">gray-500</div>
+          <div class="color-swatch bg-gray-600 p-4 rounded-lg text-white text-center text-sm">gray-600</div>
+          <div class="color-swatch bg-gray-700 p-4 rounded-lg text-white text-center text-sm">gray-700</div>
+          <div class="color-swatch bg-gray-800 p-4 rounded-lg text-white text-center text-sm">gray-800</div>
+          <div class="color-swatch bg-gray-900 p-4 rounded-lg text-white text-center text-sm">gray-900</div>
+          <div class="color-swatch bg-gray-950 p-4 rounded-lg text-white text-center text-sm">gray-950</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Custom Cyber Gray</h3>
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="color-swatch bg-[#050507] p-4 rounded-lg text-white text-center text-sm border border-gray-800">cyber-dark<br/><span class="text-gray-500 text-xs">#050507</span></div>
+          <div class="color-swatch bg-[#13151A] p-4 rounded-lg text-white text-center text-sm border border-gray-700">cyber-gray<br/><span class="text-gray-500 text-xs">#13151A</span></div>
+          <div class="color-swatch bg-[#2A2E37] p-4 rounded-lg text-white text-center text-sm border border-gray-600">cyber-border<br/><span class="text-gray-500 text-xs">#2A2E37</span></div>
+        </div>
+      </section>
+
+      <!-- ORANGE -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-orange-500"></span>
+          Orange
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-orange-100 p-4 rounded-lg text-black text-center text-sm">orange-100</div>
+          <div class="color-swatch bg-orange-200 p-4 rounded-lg text-black text-center text-sm">orange-200</div>
+          <div class="color-swatch bg-orange-300 p-4 rounded-lg text-black text-center text-sm">orange-300</div>
+          <div class="color-swatch bg-orange-400 p-4 rounded-lg text-black text-center text-sm">orange-400</div>
+          <div class="color-swatch bg-orange-500 p-4 rounded-lg text-white text-center text-sm">orange-500</div>
+          <div class="color-swatch bg-orange-600 p-4 rounded-lg text-white text-center text-sm">orange-600</div>
+          <div class="color-swatch bg-orange-700 p-4 rounded-lg text-white text-center text-sm">orange-700</div>
+          <div class="color-swatch bg-orange-800 p-4 rounded-lg text-white text-center text-sm">orange-800</div>
+          <div class="color-swatch bg-orange-900 p-4 rounded-lg text-white text-center text-sm">orange-900</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+          <div class="color-swatch bg-orange-500/10 p-4 rounded-lg text-orange-400 text-center text-sm">/10</div>
+          <div class="color-swatch bg-orange-500/20 p-4 rounded-lg text-orange-400 text-center text-sm">/20</div>
+          <div class="color-swatch bg-orange-500/30 p-4 rounded-lg text-orange-400 text-center text-sm">/30</div>
+          <div class="color-swatch bg-orange-500/40 p-4 rounded-lg text-orange-400 text-center text-sm">/40</div>
+        </div>
+      </section>
+
+      <!-- GREEN -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-green-400"></span>
+          Green
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-green-100 p-4 rounded-lg text-black text-center text-sm">green-100</div>
+          <div class="color-swatch bg-green-200 p-4 rounded-lg text-black text-center text-sm">green-200</div>
+          <div class="color-swatch bg-green-300 p-4 rounded-lg text-black text-center text-sm">green-300</div>
+          <div class="color-swatch bg-green-400 p-4 rounded-lg text-black text-center text-sm">green-400</div>
+          <div class="color-swatch bg-green-500 p-4 rounded-lg text-white text-center text-sm">green-500</div>
+          <div class="color-swatch bg-green-600 p-4 rounded-lg text-white text-center text-sm">green-600</div>
+          <div class="color-swatch bg-green-700 p-4 rounded-lg text-white text-center text-sm">green-700</div>
+          <div class="color-swatch bg-green-800 p-4 rounded-lg text-white text-center text-sm">green-800</div>
+          <div class="color-swatch bg-green-900 p-4 rounded-lg text-white text-center text-sm">green-900</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+          <div class="color-swatch bg-green-500/10 p-4 rounded-lg text-green-400 text-center text-sm">/10</div>
+          <div class="color-swatch bg-green-500/20 p-4 rounded-lg text-green-400 text-center text-sm">/20</div>
+          <div class="color-swatch bg-green-500/30 p-4 rounded-lg text-green-400 text-center text-sm">/30</div>
+          <div class="color-swatch bg-green-500/40 p-4 rounded-lg text-green-400 text-center text-sm">/40</div>
+        </div>
+      </section>
+
+      <!-- YELLOW -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-yellow-500"></span>
+          Yellow
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-yellow-100 p-4 rounded-lg text-black text-center text-sm">yellow-100</div>
+          <div class="color-swatch bg-yellow-200 p-4 rounded-lg text-black text-center text-sm">yellow-200</div>
+          <div class="color-swatch bg-yellow-300 p-4 rounded-lg text-black text-center text-sm">yellow-300</div>
+          <div class="color-swatch bg-yellow-400 p-4 rounded-lg text-black text-center text-sm">yellow-400</div>
+          <div class="color-swatch bg-yellow-500 p-4 rounded-lg text-black text-center text-sm">yellow-500</div>
+          <div class="color-swatch bg-yellow-600 p-4 rounded-lg text-white text-center text-sm">yellow-600</div>
+          <div class="color-swatch bg-yellow-700 p-4 rounded-lg text-white text-center text-sm">yellow-700</div>
+          <div class="color-swatch bg-yellow-800 p-4 rounded-lg text-white text-center text-sm">yellow-800</div>
+        </div>
+        
+        <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">With Opacity</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-8">
+          <div class="color-swatch bg-yellow-500/10 p-4 rounded-lg text-yellow-400 text-center text-sm">/10</div>
+          <div class="color-swatch bg-yellow-500/20 p-4 rounded-lg text-yellow-400 text-center text-sm">/20</div>
+          <div class="color-swatch bg-yellow-500/30 p-4 rounded-lg text-yellow-400 text-center text-sm">/30</div>
+          <div class="color-swatch bg-yellow-500/40 p-4 rounded-lg text-yellow-400 text-center text-sm">/40</div>
+        </div>
+      </section>
+
+      <!-- BLUE -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-blue-500"></span>
+          Blue
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-blue-100 p-4 rounded-lg text-black text-center text-sm">blue-100</div>
+          <div class="color-swatch bg-blue-200 p-4 rounded-lg text-black text-center text-sm">blue-200</div>
+          <div class="color-swatch bg-blue-300 p-4 rounded-lg text-black text-center text-sm">blue-300</div>
+          <div class="color-swatch bg-blue-400 p-4 rounded-lg text-black text-center text-sm">blue-400</div>
+          <div class="color-swatch bg-blue-500 p-4 rounded-lg text-white text-center text-sm">blue-500</div>
+          <div class="color-swatch bg-blue-600 p-4 rounded-lg text-white text-center text-sm">blue-600</div>
+          <div class="color-swatch bg-blue-700 p-4 rounded-lg text-white text-center text-sm">blue-700</div>
+          <div class="color-swatch bg-blue-800 p-4 rounded-lg text-white text-center text-sm">blue-800</div>
+          <div class="color-swatch bg-blue-900 p-4 rounded-lg text-white text-center text-sm">blue-900</div>
+        </div>
+      </section>
+
+      <!-- PINK -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-pink-500"></span>
+          Pink
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+          <div class="color-swatch bg-pink-100 p-4 rounded-lg text-black text-center text-sm">pink-100</div>
+          <div class="color-swatch bg-pink-200 p-4 rounded-lg text-black text-center text-sm">pink-200</div>
+          <div class="color-swatch bg-pink-300 p-4 rounded-lg text-black text-center text-sm">pink-300</div>
+          <div class="color-swatch bg-pink-400 p-4 rounded-lg text-black text-center text-sm">pink-400</div>
+          <div class="color-swatch bg-pink-500 p-4 rounded-lg text-white text-center text-sm">pink-500</div>
+          <div class="color-swatch bg-pink-600 p-4 rounded-lg text-white text-center text-sm">pink-600</div>
+          <div class="color-swatch bg-pink-700 p-4 rounded-lg text-white text-center text-sm">pink-700</div>
+          <div class="color-swatch bg-pink-800 p-4 rounded-lg text-white text-center text-sm">pink-800</div>
+        </div>
+      </section>
+
+      <!-- WHITE -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <span class="w-4 h-4 rounded bg-white border border-gray-300"></span>
+          White
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="color-swatch bg-white p-4 rounded-lg text-black text-center text-sm border border-gray-200">white</div>
+          <div class="color-swatch bg-gray-50 p-4 rounded-lg text-black text-center text-sm">gray-50</div>
+          <div class="color-swatch bg-transparent p-4 rounded-lg text-white text-center text-sm border border-dashed border-gray-600">transparent</div>
+          <div class="color-swatch bg-current p-4 rounded-lg text-cyan-400 text-center text-sm">current</div>
+        </div>
+      </section>
+
+      <!-- Common Gradient Combinations -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6">Common Gradient Combinations</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-cyan-400 to-purple-500"></div>
+            <p class="text-xs text-gray-400 text-center">cyan → purple</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500"></div>
+            <p class="text-xs text-gray-400 text-center">cyan → purple → red</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+            <p class="text-xs text-gray-400 text-center">cyan → blue</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
+            <p class="text-xs text-gray-400 text-center">purple → pink</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500"></div>
+            <p class="text-xs text-gray-400 text-center">red → orange → yellow</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-br from-gray-900 to-black"></div>
+            <p class="text-xs text-gray-400 text-center">gray-900 → black</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+            <p class="text-xs text-gray-400 text-center">fade up</p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-16 rounded-lg bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <p class="text-xs text-gray-400 text-center">beam effect</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- bg-clip-text Examples -->
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-6">Text Gradient Examples (bg-clip-text)</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Outcomes.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-red-500">Outcomes.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Secure.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Elite.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Alert.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">Safe.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Warning.</span>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-900 text-4xl font-bold text-center">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Trust.</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 mt-12">
+      <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+        <p>OutcomeX Design System &copy; 2026</p>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
